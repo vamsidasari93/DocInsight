@@ -1,0 +1,35 @@
+.example-card {
+  border-radius: 15px;
+  padding: 10px;
+  .edit-icon {
+    .edit-icons {
+      font-size: 20px;
+      color: blue;
+    }
+  }
+  .mat-card-image {
+    width: calc(100% + 17px);
+    margin: 0px 0px 0px -9px;
+    border-bottom: 1px solid #ece7e7;
+  }
+  .document-name {
+    font-weight: 500;
+  }
+  .document-DTLicon {
+    font-size: 20px;
+  }
+  .document-bunit {
+    font-size: 12px;
+  }
+}
+.bgc-grey {
+  padding: 24px;
+}
+
+.top-bar {
+  background-color: white;
+}
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}

@@ -1,0 +1,114 @@
+.container {
+  padding: 5px !important;
+  height: calc(100% - 100px) !important; // Remove toolbar height
+  background-color: grey;
+  .container-scrollBody {
+    overflow-y: scroll;
+
+    &:hover {
+      &::-webkit-scrollbar {
+        display: block;
+        opacity: 1;
+      }
+      &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px #e4e4e4;
+        //         above green is for scroller background color
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #162648;
+        //         above red is for scroller color
+        outline: 1px solid slategrey;
+      }
+    }
+    &::-webkit-scrollbar {
+      width: 2px;
+      opacity: 0;
+    }
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+.sub-toolbar {
+  .mat-accent {
+    background: #ffd740;
+    color: #1f1f23;
+    padding: 3px;
+    border-radius: 0px;
+  }
+}
+
+button {
+  font-size: large;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.sub-toolbar {
+  height: 44px;
+  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+  z-index: 1;
+  .search-icon {
+    color: grey;
+    font-size: 24px;
+  }
+}
+.header-toolbar {
+  height: 44px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+  .modules {
+    font-size: 12px;
+    // height: 32px;
+    border-radius: 30px;
+    .mat-button-toggle-checked {
+      background-color: blue;
+      color: white;
+      border-radius: 30px;
+    }
+    ::ng-deep.mat-button-toggle-label-content {
+      line-height: 0px !important;
+      padding: 0px 16px !important;
+    }
+  }
+  .profile-menu {
+    .icon-gray {
+      color: grey;
+    }
+  }
+}
+.grid-toolbar {
+  height: 44px;
+  z-index: 1;
+  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+
+  .Review-icon {
+    font-size: 12px;
+  }
+}
+.logout-grey {
+  color: grey;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+  padding: 0px 0px 2px !important;
+  border-top: 0px;
+}
+::ng-deep .mat-form-field-label-wrapper {
+  top: -1.5em;
+}
+::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0px;
+  background: white;
+  outline: none;
+  border-radius: 50px;
+  color: grey;
+}
+::ng-deep
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.1em) scale(0.75);
+  width: 133.33333%;
+  background: white;
+}

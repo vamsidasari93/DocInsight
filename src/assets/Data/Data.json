@@ -1,0 +1,44 @@
+{
+  "pdfFiles": [
+    {
+      "cName": "Golobal Risk Model Wet.pdf",
+      "lastUpdatedOn": "15 May 2020",
+      "clientName": "client",
+      "BusinessUnit": "Business Unit",
+      "thumbnails": "./images/pdf1.jpg",
+      "file": "./pfjs/web/pdf-sample.pdf"
+    },
+    {
+      "cName": "GRM Production TI.rtf",
+      "lastUpdatedOn": "15 May 2020",
+      "clientName": "client",
+      "BusinessUnit": "Business Unit",
+      "thumbnails": "./images/pdf2.jpg",
+      "file": "./pfjs/web/pdf-sample.pdf"
+    },
+    {
+      "cName": "GRM Production BnF.docx",
+      "lastUpdatedOn": "15 May 2020",
+      "clientName": "client",
+      "BusinessUnit": "Business Unit",
+      "thumbnails": "./images/pdf3.jpg",
+      "file": "./pfjs/web/pdf-sample.pdf"
+    },
+    {
+      "cName": "GRM Production SWC.pdf",
+      "lastUpdatedOn": "15 May 2020",
+      "clientName": "client",
+      "BusinessUnit": "Business Unit",
+      "thumbnails": "./images/pdf1.jpg",
+      "file": "./pfjs/web/pdf-sample.pdf"
+    },
+    {
+      "cName": "PdfName5",
+      "lastUpdatedOn": "15 May 2020",
+      "clientName": "client",
+      "BusinessUnit": "Business Unit",
+      "thumbnails": "./images/pdf3.jpg",
+      "file": "./pfjs/web/pdf-sample.pdf"
+    }
+  ]
+}

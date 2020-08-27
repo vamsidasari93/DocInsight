@@ -1,0 +1,149 @@
+<mat-toolbar class="header-toolbar">
+  <button
+    mat-button
+    routerLink="/Documents"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="mat-accent"
+  >
+    Branding
+  </button>
+  <div class="spacer"></div>
+  <p>
+    <mat-button-toggle-group
+      class="modules"
+      appearance="legacy"
+      name="fontStyle"
+      aria-label="Font Style"
+    >
+      <mat-button-toggle class="label-modules" checked value="Training"
+        >Training</mat-button-toggle
+      >
+      <mat-button-toggle class="label-modules" value="Live"
+        >Live</mat-button-toggle
+      >
+    </mat-button-toggle-group>
+  </p>
+  <div class="profile-menu">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="icon-gray">
+      <mat-icon>person</mat-icon>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <button mat-menu-item>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>people_outline</mat-icon>
+        <span>Connecting</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>videocam</mat-icon>
+        <span>Let's talk</span>
+      </button>
+    </mat-menu>
+  </div>
+  <button mat-icon-button class="logout-grey">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-toolbar color="primary" class="sub-toolbar">
+  <button
+    mat-button
+    routerLink="/DocInsight"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="mat-accent"
+  >
+    <mat-icon>dashboard</mat-icon>
+    <span>Dashboard</span>
+  </button>
+  <button
+    mat-button
+    routerLink="/Documents"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="mat-accent"
+  >
+    <mat-icon>picture_as_pdf</mat-icon>
+    <span> Documents</span>
+  </button>
+  <div class="spacer"></div>
+
+  <!-- <mat-form-field appearance="outline">
+    <input type="tel" matInput />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field> -->
+  <div class="search-wrapper">
+    <!-- <span class="searchHeader">What are you looking for?</span> -->
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="searchValue" #ctrl="ngModel" />
+      <mat-icon matSuffix class="search-icon">search</mat-icon>
+    </mat-form-field>
+  </div>
+  <!-- <button mat-button>
+    <mat-icon>note_add</mat-icon>
+    <span> Add Documents</span>
+  </button> -->
+  <input #file type="file" [hidden]="true" accept="files/*" />
+  <button mat-button #upload (click)="file.click()">
+    <mat-icon>note_add</mat-icon> <span> Add Documents</span>
+  </button>
+
+  <!-- <app-search (search)="searchComponent($event)"></app-search> -->
+  <!-- <button
+    mat-raised-button
+    routerLink="/"
+    color="primary"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="mat-accent"
+  >
+    Big viewer
+  </button>
+  <button
+    mat-raised-button
+    routerLink="inline"
+    color="primary"
+    routerLinkActive="mat-accent"
+  >
+    Inline PDF
+  </button>
+  <button
+    mat-raised-button
+    (click)="openPdf()"
+    color="primary"
+    routerLinkActive="mat-accent"
+  >
+    Open in new tab
+  </button>
+  <button
+    mat-raised-button
+    routerLink="dynamic"
+    color="primary"
+    routerLinkActive="mat-accent"
+  >
+    Dynamic PDF
+  </button> -->
+</mat-toolbar>
+<mat-toolbar class="grid-toolbar">
+  <div></div>
+  <div class="spacer"></div>
+  <mat-icon>grid_on</mat-icon>
+  <mat-slide-toggle></mat-slide-toggle>
+  <mat-icon>menu</mat-icon>
+  <button mat-button class="Review-icon">
+    <span>Review Annotations</span>
+    <mat-icon> rate_review</mat-icon>
+  </button>
+
+  <!-- <button mat-icon-button class="Review-icon">
+    
+  </button> -->
+</mat-toolbar>
+<ng2-pdfjs-viewer
+  #externalPdfViewer
+  [externalWindow]="true"
+  openFile="false"
+  [useOnlyCssZoom]="true"
+></ng2-pdfjs-viewer>
+<div class="container mat-typography">
+  <router-outlet class="container-scrollBody"></router-outlet>
+</div>

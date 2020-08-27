@@ -1,0 +1,11 @@
+<div
+  fxLayout="column"
+  fxLayoutAlign="space-around center"
+  class="search-wrapper"
+>
+  <!-- <span class="searchHeader">What are you looking for?</span> -->
+  <mat-form-field appearance="outline" class="dp">
+    <input matInput [(ngModel)]="searchValue" #ctrl="ngModel" />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>

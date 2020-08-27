@@ -1,44 +1,49 @@
 {
   "pdfFiles": [
     {
+      "id": 1,
       "cName": "Golobal Risk Model Wet.pdf",
-      "lastUpdatedOn": "15 May 2020",
+      "lastUpdatedOn": "2020 / 08/ 14",
       "clientName": "client",
       "BusinessUnit": "Business Unit",
-      "thumbnails": "./images/pdf1.jpg",
-      "file": "./pfjs/web/pdf-sample.pdf"
+      "thumbnails": "./assets/Images/pdf1.jpg",
+      "fileName": "Shravati Bridge Tender.pdf"
     },
     {
+      "id": 2,
       "cName": "GRM Production TI.rtf",
-      "lastUpdatedOn": "15 May 2020",
+      "lastUpdatedOn": "2020 / 06/ 14",
       "clientName": "client",
       "BusinessUnit": "Business Unit",
-      "thumbnails": "./images/pdf2.jpg",
-      "file": "./pfjs/web/pdf-sample.pdf"
+      "thumbnails": "./assets/Images/pdf2.jpg",
+      "fileName": "pdf-sample.pdf"
     },
     {
+      "id": 3,
       "cName": "GRM Production BnF.docx",
-      "lastUpdatedOn": "15 May 2020",
+      "lastUpdatedOn": "2020 / 08/ 10",
       "clientName": "client",
       "BusinessUnit": "Business Unit",
-      "thumbnails": "./images/pdf3.jpg",
-      "file": "./pfjs/web/pdf-sample.pdf"
+      "thumbnails": "./assets/Images/pdf1.jpg",
+      "fileName": "gre_research_validity_data.pdf"
     },
     {
+      "id": 4,
       "cName": "GRM Production SWC.pdf",
-      "lastUpdatedOn": "15 May 2020",
+      "lastUpdatedOn": "2020 / 08/ 12",
       "clientName": "client",
       "BusinessUnit": "Business Unit",
-      "thumbnails": "./images/pdf1.jpg",
-      "file": "./pfjs/web/pdf-sample.pdf"
+      "thumbnails": "./assets/Images/pdf2.jpg",
+      "fileName": "compressed.pdf"
     },
     {
+      "id": 5,
       "cName": "PdfName5",
-      "lastUpdatedOn": "15 May 2020",
+      "lastUpdatedOn": "2020 / 08/ 10",
       "clientName": "client",
       "BusinessUnit": "Business Unit",
-      "thumbnails": "./images/pdf3.jpg",
-      "file": "./pfjs/web/pdf-sample.pdf"
+      "thumbnails": "./assets/Images/pdf1.jpg",
+      "fileName": "Shravati Bridge Tender.pdf"
     }
   ]
 }

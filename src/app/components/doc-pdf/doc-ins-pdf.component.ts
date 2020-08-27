@@ -6,6 +6,8 @@ import {
   Renderer,
   HostListener,
 } from "@angular/core";
+import { PdfserviceService } from "src/app/Services/pdfservice.service";
+import { ActivatedRoute, Params } from "@angular/router";
 
 @Component({
   selector: "app-doc-ins-pdf",
@@ -15,10 +17,20 @@ import {
 export class DocInsPdfComponent implements OnInit {
   @ViewChild("bigPdfViewer", { static: true }) public bigPdfViewer;
   pdfMaterial: any;
-  constructor(private el: ElementRef, private renderer: Renderer) {}
+  id: any;
+  filterData: any;
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer,
+    private PdfserviceService: PdfserviceService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    // this.getMaterialPdf();
+    this.activatedRoute.params.subscribe((id: Params) => {
+      this.id = id;
+    });
+    this.getMaterialPdf();
   }
 
   public testBeforePrint() {
@@ -46,10 +58,13 @@ export class DocInsPdfComponent implements OnInit {
   Paragraph(e) {
     console.log("click", e.target.value);
   }
-  // getMaterialPdf() {
-  //   this.PdfserviceService.getMaterialPdf().subscribe((data) => {
-  //     this.pdfMaterial = data;
-  //     console.log("hello", this.pdfMaterial);
-  //   });
-  // }
+  getMaterialPdf() {
+    this.PdfserviceService.getMaterialPdf().subscribe((data) => {
+      this.pdfMaterial = data;
+      let pdfData = this.pdfMaterial.pdfFiles;
+      let index = pdfData.findIndex((x) => x.id === parseInt(this.id.id));
+      this.filterData = pdfData[index];
+      console.log(this.filterData.fileName);
+    });
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { PdfserviceService } from "src/app/Services/pdfservice.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-documents",
@@ -7,10 +8,12 @@ import { PdfserviceService } from "src/app/Services/pdfservice.service";
   styleUrls: ["./documents.component.scss"],
 })
 export class DocumentsComponent implements OnInit {
-  cards = [1, 2, 3, 4, 5];
   pdfFiles: any;
   pdfData: any;
-  constructor(private PdfserviceService: PdfserviceService) {}
+  constructor(
+    private PdfserviceService: PdfserviceService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.pdffile();
@@ -21,5 +24,9 @@ export class DocumentsComponent implements OnInit {
       this.pdfData = this.pdfFiles.pdfFiles;
       console.log(this.pdfData);
     });
+  }
+  DocumentClick(e, id, filename) {
+    // console.log(id, filename);
+    this.router.navigate(["/DocInsight", { id: id }]);
   }
 }

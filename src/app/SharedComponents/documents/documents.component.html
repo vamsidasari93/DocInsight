@@ -9,14 +9,20 @@
       <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </div>
     <img
-      mat-card-image
-      src="../assets/Images/pdf1.jpg"
+      class="document-image"
+      src="{{ documents.thumbnails }}"
       alt="Photo of a Shiba Inu"
+      (click)="DocumentClick($event, documents.id, documents.cName)"
     />
     <mat-card-content>
-      <div fxLayout="row" fxLayoutAlign="space-between center">
+      <div
+        class="content-trash"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+      >
         <span class="document-name">{{ documents.cName }}</span>
-        <mat-icon class="document-DTLicon">delete</mat-icon>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+        <!-- <mat-icon class="document-DTLicon">delete</mat-icon> -->
       </div>
       <div
         class="document-bunit"

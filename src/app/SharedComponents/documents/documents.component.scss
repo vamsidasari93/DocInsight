@@ -2,14 +2,13 @@
   border-radius: 15px;
   padding: 10px;
   .edit-icon {
-    .edit-icons {
-      font-size: 20px;
+    .fa-pencil-square-o {
       color: blue;
     }
   }
-  .mat-card-image {
-    width: calc(100% + 17px);
-    margin: 0px 0px 0px -9px;
+  .document-image {
+    height: 250px;
+    width: calc(236px - 10px);
     border-bottom: 1px solid #ece7e7;
   }
   .document-name {
@@ -20,6 +19,11 @@
   }
   .document-bunit {
     font-size: 12px;
+  }
+  .content-trash {
+    .fa-trash {
+      color: grey;
+    }
   }
 }
 .bgc-grey {

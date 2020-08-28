@@ -37,6 +37,16 @@
     padding: 3px;
     border-radius: 0px;
   }
+  .add-document-icon {
+    margin: 0px;
+    padding: 0px;
+    padding-left: 10px;
+    min-width: 0px;
+  }
+  .document-add {
+    font-size: 14px;
+    line-height: 1;
+  }
 }
 
 button {
@@ -79,13 +89,30 @@ button {
   }
 }
 .grid-toolbar {
+  padding-right: 0px;
   height: 44px;
   z-index: 1;
   position: relative;
   box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
 
   .Review-icon {
-    font-size: 12px;
+    font-size: 14px;
+    background-color: yellow;
+    color: #010113;
+    padding: 8px 8px;
+    font-weight: 600;
+    margin-right: 0px;
+  }
+  .review-add {
+    margin: 0px;
+    padding: 0px;
+    min-width: 0px;
+    float: left;
+    text-align: left;
+  }
+  .rate-document-icon {
+    font-size: 14px;
+    line-height: 1;
   }
 }
 .logout-grey {

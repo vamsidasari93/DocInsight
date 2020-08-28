@@ -50,7 +50,7 @@
 <mat-toolbar color="primary" class="sub-toolbar">
   <button
     mat-button
-    routerLink="/DocInsight"
+    routerLink=""
     [routerLinkActiveOptions]="{ exact: true }"
     routerLinkActive="mat-accent"
   >
@@ -84,9 +84,10 @@
     <span> Add Documents</span>
   </button> -->
   <input #file type="file" [hidden]="true" accept="files/*" />
-  <button mat-button #upload (click)="file.click()">
-    <mat-icon>note_add</mat-icon> <span> Add Documents</span>
+  <button mat-button class="add-document-icon" #upload (click)="file.click()">
+    <mat-icon>note_add</mat-icon>
   </button>
+  <span class="document-add"> Add <br />Documents</span>
 
   <!-- <app-search (search)="searchComponent($event)"></app-search> -->
   <!-- <button
@@ -129,8 +130,9 @@
   <mat-icon>grid_on</mat-icon>
   <mat-slide-toggle></mat-slide-toggle>
   <mat-icon>menu</mat-icon>
-  <button mat-button class="Review-icon">
-    <span>Review Annotations</span>
+
+  <button mat-button class="Review-icon rate-document-icon">
+    <span class="review-add">Review <br />Annotations</span>
     <mat-icon> rate_review</mat-icon>
   </button>
 

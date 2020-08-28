@@ -2,6 +2,9 @@
   "pdfFiles": [
     {
       "id": 1,
+      "uploadedBy": "L&T",
+      "annotations": "15",
+      "pages": "100",
       "cName": "Golobal Risk Model Wet.pdf",
       "lastUpdatedOn": "2020 / 08/ 14",
       "clientName": "client",
@@ -11,6 +14,9 @@
     },
     {
       "id": 2,
+      "uploadedBy": "L&T",
+      "annotations": "15",
+      "pages": "100",
       "cName": "GRM Production TI.rtf",
       "lastUpdatedOn": "2020 / 06/ 14",
       "clientName": "client",
@@ -20,6 +26,9 @@
     },
     {
       "id": 3,
+      "uploadedBy": "L&T",
+      "annotations": "15",
+      "pages": "100",
       "cName": "GRM Production BnF.docx",
       "lastUpdatedOn": "2020 / 08/ 10",
       "clientName": "client",
@@ -29,6 +38,9 @@
     },
     {
       "id": 4,
+      "uploadedBy": "L&T",
+      "annotations": "15",
+      "pages": "100",
       "cName": "GRM Production SWC.pdf",
       "lastUpdatedOn": "2020 / 08/ 12",
       "clientName": "client",
@@ -38,6 +50,9 @@
     },
     {
       "id": 5,
+      "uploadedBy": "L&T",
+      "annotations": "15",
+      "pages": "100",
       "cName": "PdfName5",
       "lastUpdatedOn": "2020 / 08/ 10",
       "clientName": "client",

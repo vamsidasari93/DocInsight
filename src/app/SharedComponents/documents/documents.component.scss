@@ -37,3 +37,68 @@
   background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
   background-size: cover;
 }
+
+table {
+  width: 98%;
+  margin: 10px 14px;
+  border-collapse: collapse;
+  // border-radius: 1em;
+  overflow: hidden;
+  background: transparent;
+
+  tr.mat-footer-row,
+  tr.mat-row {
+    height: 40px !important;
+  }
+  th,
+  td {
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #bfbfbf;
+    border-bottom: 4px solid grey;
+    color: #8f8f8f;
+  }
+  th:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+  th:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+  td:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+  td:last-child {
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  // tr:first-child td:first-child {
+  //   border-top-left-radius: 20px;
+  // }
+  // tr:first-child td:last-child {
+  //   border-top-right-radius: 20px;
+  // }
+  // tr:last-child td:first-child {
+  //   border-bottom-left-radius: 20px;
+  // }
+  // tr:last-child td:last-child {
+  //   border-bottom-right-radius: 20px;
+  // }
+  tr {
+    th {
+      background-color: #054dc8;
+      color: #ffda29;
+      font-size: 20px;
+      // font-weight: 600;
+    }
+  }
+  .action-icons {
+    font-size: 24px;
+    color: grey;
+    .fa-pencil-square-o {
+      padding: 0px 16px;
+    }
+  }
+}

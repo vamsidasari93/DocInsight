@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable, throwError } from "rxjs";
+import { Observable, throwError, Subject } from "rxjs";
 import { catchError } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 import {
@@ -13,8 +13,19 @@ import {
 })
 export class PdfserviceService {
   headers = new HttpHeaders().set("Content-Type", "application/json");
-  constructor(private http: HttpClient) {}
+  private sub = new Subject();
+  subj$ = this.sub.asObservable();
 
+  private searchValue = new Subject();
+  searchValue$ = this.searchValue.asObservable();
+
+  constructor(private http: HttpClient) {}
+  send(value: any) {
+    this.sub.next(value);
+  }
+  searchvalue(value: any) {
+    this.searchValue.next(value);
+  }
   getMaterialPdf() {
     return this.http.get(`${environment.apiUrl}`);
     // return this.http.get('../assets/Data/data.Json');
@@ -40,4 +51,7 @@ export class PdfserviceService {
     console.log(errorMessage);
     return throwError(errorMessage);
   }
+  checked = new Observable((observer) => {
+    let value = "checked";
+  });
 }

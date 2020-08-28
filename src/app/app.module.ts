@@ -27,6 +27,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { PdfserviceService } from "./Services/pdfservice.service";
 import { HttpClientModule } from "@angular/common/http";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 const MATERIAL_IMPORTS = [
   BrowserAnimationsModule,
   MatToolbarModule,
@@ -56,7 +58,10 @@ const MATERIAL_IMPORTS = [
     FormsModule,
     HttpClientModule,
     MatSlideToggleModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
   ],
+  exports: [],
   providers: [PdfserviceService],
   bootstrap: [AppComponent],
 })

@@ -9,6 +9,13 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { FormsModule } from "@angular/forms";
 import { Ng2SearchPipeModule } from "ng2-search-filter";
+import { MatTableModule } from "@angular/material/table";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+
+import { MatSortModule } from "@angular/material/sort";
+import { MatSelectModule } from "@angular/material/select";
+import { MatPaginatorModule } from "@angular/material/paginator";
+
 //import { PdfserviceService } from "../components/doc-pdf/pdfservice.service";
 const routes: Routes = [
   {
@@ -28,8 +35,14 @@ const routes: Routes = [
     MatIconModule,
     FormsModule,
     Ng2SearchPipeModule,
+    MatTableModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatSortModule,
   ],
   // providers: [PdfserviceService],
-  exports: [SearchComponent],
+  exports: [SearchComponent, MatSortModule],
 })
 export class SharedModule {}

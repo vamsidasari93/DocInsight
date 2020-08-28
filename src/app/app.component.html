@@ -75,7 +75,7 @@
   <div class="search-wrapper">
     <!-- <span class="searchHeader">What are you looking for?</span> -->
     <mat-form-field appearance="outline">
-      <input matInput [(ngModel)]="searchValue" #ctrl="ngModel" />
+      <input matInput (keyup)="onKey($event)" />
       <mat-icon matSuffix class="search-icon">search</mat-icon>
     </mat-form-field>
   </div>
@@ -128,7 +128,12 @@
   <div></div>
   <div class="spacer"></div>
   <mat-icon>grid_on</mat-icon>
-  <mat-slide-toggle></mat-slide-toggle>
+  <mat-slide-toggle
+    class="sidebar-Toggle"
+    [(ngModel)]="checked"
+    (change)="changed()"
+  >
+  </mat-slide-toggle>
   <mat-icon>menu</mat-icon>
 
   <button mat-button class="Review-icon rate-document-icon">

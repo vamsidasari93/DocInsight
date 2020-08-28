@@ -32,7 +32,7 @@
 }
 .sub-toolbar {
   .mat-accent {
-    background: #ffd740;
+    background: #ffda29;
     color: #1f1f23;
     padding: 3px;
     border-radius: 0px;
@@ -97,7 +97,7 @@ button {
 
   .Review-icon {
     font-size: 14px;
-    background-color: yellow;
+    background-color: #ffda29;
     color: #010113;
     padding: 8px 8px;
     font-weight: 600;
@@ -113,6 +113,24 @@ button {
   .rate-document-icon {
     font-size: 14px;
     line-height: 1;
+  }
+  .sidebar-Toggle {
+    ::ng-deep .mat-slide-toggle-bar {
+      position: relative;
+      // width: 46px;
+      height: 15px;
+      background-color: blue;
+    }
+    ::ng-deep .mat-slide-toggle-thumb-container {
+      top: 2px;
+    }
+    ::ng-deep .mat-slide-toggle-thumb {
+      height: 12px;
+      width: 12px;
+    }
+  }
+  ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
+    transform: translate3d(24px, 0, 0) !important;
   }
 }
 .logout-grey {

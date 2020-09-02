@@ -102,3 +102,30 @@ table {
     }
   }
 }
+.list-paginator {
+  // float: left;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  ::ng-deep.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding: 0px;
+  }
+  ::ng-deep.mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0px;
+  }
+  ::ng-deep.mat-form-field-appearance-legacy .mat-form-field-underline:focus {
+    height: 0px;
+  }
+}
+.list-footer {
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  .download-list {
+    padding-right: 28px;
+  }
+}

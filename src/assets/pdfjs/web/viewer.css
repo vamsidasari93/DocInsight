@@ -281,12 +281,11 @@
 .pdfViewer .canvasWrapper {
   overflow: hidden;
 }
-
 .pdfViewer .page {
   direction: ltr;
   width: 816px;
   height: 1056px;
-  margin: 1px auto -8px auto;
+  margin: 1px auto 9px auto;
   position: relative;
   overflow: visible;
   border: 9px solid transparent;
@@ -1615,7 +1614,7 @@ html[dir="rtl"] .verticalToolbarSeparator {
 
 #thumbnailView {
   position: absolute;
-  width: calc(100% - 60px);
+  /* width: calc(100% - 60px); */
   top: 0;
   bottom: 0;
   padding: 10px 30px 0;
@@ -2470,4 +2469,60 @@ html[dir="rtl"] #documentPropertiesOverlay .row > * {
   #scaleSelectContainer {
     display: none;
   }
+}
+.category-popup {
+  display: none;
+}
+.modal .modal-dialog .modal-content {
+  width: auto !important;
+}
+.modal-content .close-button {
+  background: #ffda29;
+  padding: 6px 0px;
+  color: #010113;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+.modal-content .close-button:focus {
+  outline: none;
+}
+.modal-content .dropdown-item .text {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+.modal-content .dropdown-item .bootstrap-select .bs-ok-default:after {
+  color: white;
+}
+.dropdown-menu {
+  background-color: blue;
+}
+.dropdown-item:hover {
+  background: #7171df;
+}
+.dropdown-menu .selected {
+  outline: none;
+  background: #6969be;
+  padding: 2px 8px 2px 8px;
+}
+.bootstrap-select.show-tick .dropdown-menu .selected span.check-mark {
+  color: #4833bc;
+  padding: 2px 5px;
+  border-radius: 2px;
+  border: 1px solid;
+  background: white;
+}
+.dropdown-toggle {
+  font-size: 14px;
+  font-weight: 500;
+}
+.bootstrap-select .dropdown-toggle:focus {
+  outline: none;
+}
+.bs-searchbox .form-control {
+  font-size: 14px;
+}
+.no-results {
+  font-size: 14px;
 }

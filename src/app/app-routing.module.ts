@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: "inline", component: InlineComponent },
   { path: "dynamic", component: DynamicComponent },
   { path: "", redirectTo: "/Documents", pathMatch: "full" },
+  { path: "**", redirectTo: "/Documents", pathMatch: "full" },
 ];
 
 @NgModule({

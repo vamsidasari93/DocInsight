@@ -14,7 +14,11 @@
     *ngFor="let documents of pdfData | filter: searchValue"
   >
     <div class="edit-icon" fxLayoutAlign="end end">
-      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <i
+        class="fa fa-pencil-square-o"
+        aria-hidden="true"
+        (click)="DocumentClick($event, documents.id, documents.cName)"
+      ></i>
     </div>
     <img
       class="document-image"
@@ -113,7 +117,7 @@
     <ng-container matColumnDef="Action">
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let element" class="action-icons">
-        <span (click)="redirectToDetails(element.id)"
+        <span (click)="DocumentClick($event, element.id, element.cName)"
           ><i class="fa fa-eye" aria-hidden="true"></i
         ></span>
         <span (click)="updateRowData(element.id)"
@@ -136,10 +140,16 @@
       </td>
     </tr>
   </table>
-  <mat-paginator
-    class="f-18"
-    #paginator
-    [pageSize]="5"
-    [pageSizeOptions]="[5, 10, 25, 100]"
-  ></mat-paginator>
+  <div fxLayout="row" fxLayoutAlign="space-between center" class="list-footer">
+    <mat-paginator
+      class="list-paginator"
+      #paginator
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+    ></mat-paginator>
+    <div class="download-list">
+      <span>Download Document</span>&nbsp;
+      <i class="fa fa-download" aria-hidden="true"></i>
+    </div>
+  </div>
 </div>

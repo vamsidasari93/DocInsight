@@ -1,19 +1,66 @@
-<div class="h-100">
-  <!-- <div fxLayout="row" fxLayoutAlign="space-around">
-      <p>Angular testing PDF</p>
-      <p>Angular testing PDF1</p>
-    </div> -->
+<div class="h-100" fxLayout="row" fxLayoutAlign="space-between start">
+  <div class="h-100">
+    <!-- {{ viewer.page }}
+    {{ viewer.pdfSrc }}
+    {{ viewer.nameddest }} -->
+    <!-- {{ viewer.PDFViewerApplication }}
+    {{ viewer.PDFViewerApplicationOptions }} -->
+    <ng2-pdfjs-viewer
+      #viewer
+      pdfSrc="{{ filterData.fileName }}"
+      downloadFileName="{{ filterData.fileName }}"
+      zoom="auto"
+      viewerId="MyID"
+      (onDocumentLoad)="testPagesLoaded($event)"
+      (onPageChange)="testPageChange($event)"
+      (onBeforePrint)="testBeforePrint()"
+      (onAfterPrint)="testAfterPrint()"
+    >
+    </ng2-pdfjs-viewer>
+  </div>
+  <div *ngIf="segmentShow" class="p-10" fxFlex="17">
+    <!-- <mat-selection-list #shoes> -->
 
-  <ng2-pdfjs-viewer
-    #bigPdfViewer
-    pdfSrc="{{ filterData.fileName }}"
-    downloadFileName="Shravati Bridge Tender"
-    zoom="auto"
-    viewerId="MyID"
-    (onDocumentLoad)="testPagesLoaded($event)"
-    (onPageChange)="testPageChange($event)"
-    (onBeforePrint)="testBeforePrint()"
-    (onAfterPrint)="testAfterPrint()"
-  >
-  </ng2-pdfjs-viewer>
+    <div class="segments-values">
+      <mat-icon (click)="close()" class="close-icon">cancel</mat-icon>
+      <div fxLayout="row" class="segement-search">
+        <mat-icon matPrefix class="search-icon">search</mat-icon>
+        <input
+          class="segement"
+          matInput
+          [(ngModel)]="searchSegment"
+          placeholder="Search"
+        />
+      </div>
+      <hr />
+      <div
+        *ngFor="let clasues of segments | filter: searchSegment"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+      >
+        <p>{{ clasues }}</p>
+        <span>(0)</span>
+      </div>
+    </div>
+
+    <!-- </mat-selection-list> -->
+    <!-- <table class="w-100">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-column="Attribute">Page</td>
+          <td data-column="Value">payment terms</td>
+        </tr>
+        <tr>
+          <td data-column="Attribute">Source</td>
+          <td data-column="Value">priceVaraiation</td>
+        </tr>
+      </tbody>
+    </table> -->
+  </div>
 </div>

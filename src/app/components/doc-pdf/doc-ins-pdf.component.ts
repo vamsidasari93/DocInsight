@@ -15,24 +15,46 @@ import { ActivatedRoute, Params } from "@angular/router";
   styleUrls: ["./doc-ins-pdf.component.scss"],
 })
 export class DocInsPdfComponent implements OnInit {
-  @ViewChild("bigPdfViewer", { static: true }) public bigPdfViewer;
+  @ViewChild("viewer", { static: true }) public bigPdfViewer;
   pdfMaterial: any;
   id: any;
   filterData: any;
+  searchSegment: any;
+  segmentShow: any;
+  segments: string[] = [
+    "Payment Terms",
+    "Price variation",
+    "Permissions/Rows",
+    "Terminations",
+    "Dispute Resolution",
+    "Force majeure",
+  ];
   constructor(
     private el: ElementRef,
     private renderer: Renderer,
     private PdfserviceService: PdfserviceService,
     private activatedRoute: ActivatedRoute
-  ) {}
+  ) {
+    this.PdfserviceService.annotation("DocInsight");
+  }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((id: Params) => {
       this.id = id;
     });
-    this.getMaterialPdf();
-  }
 
+    this.getMaterialPdf();
+    this.segementshow();
+  }
+  segementshow() {
+    this.PdfserviceService.segemnets$.subscribe((val) => {
+      this.segmentShow = val;
+      console.log(this.segmentShow);
+    });
+  }
+  close() {
+    this.segmentShow = false;
+  }
   public testBeforePrint() {
     console.log("testBeforePrint() successfully called");
     console.log(this.bigPdfViewer.page);
@@ -65,6 +87,8 @@ export class DocInsPdfComponent implements OnInit {
       let index = pdfData.findIndex((x) => x.id === parseInt(this.id.id));
       this.filterData = pdfData[index];
       console.log(this.filterData.fileName);
+      var pdfName = this.filterData.fileName;
+      this.PdfserviceService.pdfName(pdfName);
     });
   }
 }

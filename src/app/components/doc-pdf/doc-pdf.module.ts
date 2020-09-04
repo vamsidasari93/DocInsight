@@ -7,6 +7,12 @@ import { MatTableModule } from "@angular/material/table";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { Routes, RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
+import { Ng2SearchPipeModule } from "ng2-search-filter";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { FormsModule } from "@angular/forms";
+import { MatIconModule } from "@angular/material/icon";
+// import { MatListModule } from "@angular/material/list";
 //import { PdfserviceService } from "./pdfservice.service";
 const routes: Routes = [
   {
@@ -25,7 +31,12 @@ const routes: Routes = [
     MatTableModule,
     FlexLayoutModule,
     HttpClientModule,
+    Ng2SearchPipeModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatIconModule,
   ],
-  // providers: [PdfserviceService],
+  providers: [],
 })
 export class DocPDfModule {}

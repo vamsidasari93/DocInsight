@@ -68,82 +68,52 @@
   </button>
   <div class="spacer"></div>
 
-  <!-- <mat-form-field appearance="outline">
-    <input type="tel" matInput />
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field> -->
-  <div class="search-wrapper">
+  <div class="search-wrapper" *ngIf="annotation">
     <!-- <span class="searchHeader">What are you looking for?</span> -->
     <mat-form-field appearance="outline">
       <input matInput (keyup)="onKey($event)" />
       <mat-icon matSuffix class="search-icon">search</mat-icon>
     </mat-form-field>
   </div>
-  <!-- <button mat-button>
-    <mat-icon>note_add</mat-icon>
-    <span> Add Documents</span>
-  </button> -->
   <input #file type="file" [hidden]="true" accept="files/*" />
   <button mat-button class="add-document-icon" #upload (click)="file.click()">
     <mat-icon>note_add</mat-icon>
   </button>
   <span class="document-add"> Add <br />Documents</span>
-
-  <!-- <app-search (search)="searchComponent($event)"></app-search> -->
-  <!-- <button
-    mat-raised-button
-    routerLink="/"
-    color="primary"
-    [routerLinkActiveOptions]="{ exact: true }"
-    routerLinkActive="mat-accent"
-  >
-    Big viewer
-  </button>
-  <button
-    mat-raised-button
-    routerLink="inline"
-    color="primary"
-    routerLinkActive="mat-accent"
-  >
-    Inline PDF
-  </button>
-  <button
-    mat-raised-button
-    (click)="openPdf()"
-    color="primary"
-    routerLinkActive="mat-accent"
-  >
-    Open in new tab
-  </button>
-  <button
-    mat-raised-button
-    routerLink="dynamic"
-    color="primary"
-    routerLinkActive="mat-accent"
-  >
-    Dynamic PDF
-  </button> -->
 </mat-toolbar>
 <mat-toolbar class="grid-toolbar">
-  <div></div>
-  <div class="spacer"></div>
-  <mat-icon>grid_on</mat-icon>
-  <mat-slide-toggle
-    class="sidebar-Toggle"
-    [(ngModel)]="checked"
-    (change)="changed()"
-  >
-  </mat-slide-toggle>
-  <mat-icon>menu</mat-icon>
+  <div *ngIf="!annotation">
+    <i class="fa fa-arrow-left" aria-hidden="true" routerLink="/Documents"></i>
+    <span class="backward">Document list / Annotate Document/</span>
+    <span class="backward">{{ pdfFilename }}</span>
+  </div>
 
+  <div class="spacer"></div>
+  <div *ngIf="annotation">
+    <mat-icon>grid_on</mat-icon>
+    <mat-slide-toggle
+      class="sidebar-Toggle"
+      [(ngModel)]="checked"
+      (change)="changed()"
+    >
+    </mat-slide-toggle>
+    <mat-icon>menu</mat-icon>
+  </div>
+  <div *ngIf="!annotation">
+    <button mat-button class="annotation" (click)="annotationCount()">
+      <span class="annotation-icon">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i
+      ></span>
+      <span class="annotation-count"
+        >Annotation <br />
+        count</span
+      >
+    </button>
+  </div>
   <button mat-button class="Review-icon rate-document-icon">
     <span class="review-add">Review <br />Annotations</span>
     <mat-icon> rate_review</mat-icon>
   </button>
-
-  <!-- <button mat-icon-button class="Review-icon">
-    
-  </button> -->
 </mat-toolbar>
 <ng2-pdfjs-viewer
   #externalPdfViewer

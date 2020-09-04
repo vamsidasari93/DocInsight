@@ -16,7 +16,9 @@ export class AppComponent {
   page: number;
   searchValue: string;
   checked: boolean;
-
+  annotation: boolean;
+  pdfFilename: any;
+  segemnts: any;
   @ViewChild("externalPdfViewer", { static: true }) public externalPdfViewer;
   @ViewChild("embeddedPdfViewer", { static: true }) public embeddedPdfViewer;
   // @ViewChild("SearchValue", { static: true }) public SearchValue;
@@ -26,13 +28,25 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    // this.pdfService.subject.next([
-    //   {
-    //     checked: true,
-    //   },
-    // ]);
+    this.find();
+    this.pdfService.pdfName$.subscribe((val) => {
+      this.pdfFilename = val;
+    });
   }
-
+  find() {
+    // this.annotation = true;
+    this.pdfService.annatation$.subscribe((val) => {
+      if (val === "DocInsight") {
+        this.annotation = false;
+      } else {
+        this.annotation = true;
+      }
+    });
+  }
+  annotationCount() {
+    this.segemnts = !this.segemnts;
+    this.pdfService.segemnets(this.segemnts);
+  }
   public openPdf() {
     console.log("opening pdf in new tab!");
     this.externalPdfViewer.pdfSrc = "compressed.pdf";
@@ -50,7 +64,6 @@ export class AppComponent {
   }
   changed() {
     var checkValue = this.checked;
-    console.log(checkValue);
     this.pdfService.send(checkValue);
   }
 }

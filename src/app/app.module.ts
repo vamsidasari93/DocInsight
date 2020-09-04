@@ -1,21 +1,15 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
 import { AppRoutingModule } from "./app-routing.module";
-
 import { AppComponent } from "./app.component";
 // ----> Import PdfJsViewerModule here
 import { PdfJsViewerModule } from "ng2-pdfjs-viewer";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule } from "@angular/material/button";
-
-import { BigComponent } from "./big/big.component";
-import { DynamicComponent } from "./dynamic/dynamic.component";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatTableModule } from "@angular/material/table";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { InlineComponent } from "./inline/inline.component";
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSelectModule } from "@angular/material/select";
@@ -36,7 +30,7 @@ const MATERIAL_IMPORTS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, InlineComponent, BigComponent, DynamicComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

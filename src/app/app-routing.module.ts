@@ -1,11 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { BigComponent } from "./big/big.component";
-import { DynamicComponent } from "./dynamic/dynamic.component";
-import { InlineComponent } from "./inline/inline.component";
 
 const routes: Routes = [
-  { path: "big", component: BigComponent },
   {
     path: "DocInsight",
     loadChildren: () =>
@@ -16,8 +12,7 @@ const routes: Routes = [
     loadChildren: () =>
       import("./SharedComponents/shared.module").then((m) => m.SharedModule),
   },
-  { path: "inline", component: InlineComponent },
-  { path: "dynamic", component: DynamicComponent },
+
   { path: "", redirectTo: "/Documents", pathMatch: "full" },
   { path: "**", redirectTo: "/Documents", pathMatch: "full" },
 ];

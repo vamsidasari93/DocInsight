@@ -20504,25 +20504,29 @@
     /******/
 
     // addEventListener version
-    document.addEventListener("selectionchange", () => {
-      console.log("selceted", document.getSelection());
-    }),
-
-    (document.onselectionchange = () => {
-      var text = getSelectedText();
-      console.log(text);
-      if (text) {
-        // alert(text);
+    // document.addEventListener("selectionchange", () => {
+    //   console.log("selceted", document.getSelection());
+    // }),
+    document.addEventListener("click", () => {
+      var pdf = HighlightSelectedText();
+      document.addEventListener("dblclick", () => {
+        var text = getSelectedText();
         document.getElementById("popup").style.display = "block";
-      }
+        // var page = window.PDFViewerApplication.pdfViewer.currentPageNumber;
+      });
     }),
   ]
 );
-// document.addEventListener("click", () => {
-//   var text = getSelectedText();
-//   alert(text);
-// });
 
+// document.addEventListener("click", () => {
+//   var pdf = HighlightSelectedText();
+//   document.addEventListener("dblclick", () => {
+//     var text = getSelectedText();
+//     document.getElementById("popup").style.display = "block";
+//     // var page = window.PDFViewerApplication.pdfViewer.currentPageNumber;
+//     console.log("testing", page);
+//   });
+// });
 // document.addEventListener("selectionchange", () => {
 //   console.log("selceted", document.getSelection());
 // });
@@ -20548,41 +20552,41 @@ function getSelectedText() {
   return "";
 }
 
-// function HighlightSelectedText() {
-//   var pageIndex = window.PDFViewerApplication.pdfViewer.currentPageNumber - 1;
-//   var page = window.PDFViewerApplication.pdfViewer.pages[pageIndex];
-//   var pageElement = page.canvas.parentElement;
-//   var pageRect = page.canvas.getClientRects()[0];
-//   var selectionRects = window.getSelection().getRangeAt(0).getClientRects();
-//   var viewport = page.viewport;
-//   var selected = $.map(selectionRects, function (r) {
-//     var rect = viewport
-//       .convertToPdfPoint(r.left - pageRect.left, r.top - pageRect.top)
-//       .concat(
-//         viewport.convertToPdfPoint(
-//           r.right - pageRect.left,
-//           r.bottom - pageRect.top
-//         )
-//       );
-//     var bounds = viewport.convertToViewportRectangle(rect);
-//     var el = document.createElement("div");
-//     el.setAttribute(
-//       "style",
-//       "position: absolute; background-color: rgba(255, 255, 51, 0.3);" +
-//         "left:" +
-//         Math.min(bounds[0], bounds[2]) +
-//         "px; top:" +
-//         Math.min(bounds[1], bounds[3]) +
-//         "px;" +
-//         "width:" +
-//         Math.abs(bounds[0] - bounds[2]) +
-//         "px; height:" +
-//         Math.abs(bounds[1] - bounds[3]) +
-//         "px;"
-//     );
-//     el.setAttribute("id", "newElement" + i);
-//     pageElement.appendChild(el);
-//   });
-//   console.log(selected);
-// }
+function HighlightSelectedText() {
+  var pageIndex = window.PDFViewerApplication.pdfViewer.currentPageNumber;
+  var page = window.PDFViewerApplication.pdfViewer._pages[pageIndex];
+  var pageElement = page.canvas.parentElement;
+  var pageRect = page.canvas.getClientRects()[0];
+  var selectionRects = window.getSelection().getRangeAt(0).getClientRects();
+  var viewport = page.viewport;
+  var selected = $.map(selectionRects, function (r) {
+    var rect = viewport
+      .convertToPdfPoint(r.left - pageRect.left, r.top - pageRect.top)
+      .concat(
+        viewport.convertToPdfPoint(
+          r.right - pageRect.left,
+          r.bottom - pageRect.top
+        )
+      );
+    var bounds = viewport.convertToViewportRectangle(rect);
+    var el = document.createElement("div");
+    el.setAttribute(
+      "style",
+      "position: absolute; background-color: rgba(255, 255, 51, 0.3);border-left-style: solid ;" +
+        "left:" +
+        Math.min(bounds[0], bounds[2]) +
+        "px; top:" +
+        Math.min(bounds[1], bounds[3]) +
+        "px;" +
+        "width:" +
+        Math.abs(bounds[0] - bounds[2]) +
+        "px; height:" +
+        Math.abs(bounds[1] - bounds[3]) +
+        "px;"
+    );
+    // el.setAttribute("id", "newElement" + i);
+    pageElement.appendChild(el);
+  });
+  console.log(selected);
+}
 //# sourceMappingURL=viewer.js.map

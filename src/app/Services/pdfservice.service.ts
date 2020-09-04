@@ -19,12 +19,31 @@ export class PdfserviceService {
   private searchValue = new Subject();
   searchValue$ = this.searchValue.asObservable();
 
+  private annotations = new Subject();
+  annatation$ = this.annotations.asObservable();
+
+  private fileName = new Subject();
+  pdfName$ = this.fileName.asObservable();
+
+  private segemnetShow = new Subject();
+  segemnets$ = this.segemnetShow.asObservable();
+
   constructor(private http: HttpClient) {}
+
   send(value: any) {
     this.sub.next(value);
   }
   searchvalue(value: any) {
     this.searchValue.next(value);
+  }
+  annotation(value: any) {
+    this.annotations.next(value);
+  }
+  pdfName(value: any) {
+    this.fileName.next(value);
+  }
+  segemnets(value: any) {
+    this.segemnetShow.next(value);
   }
   getMaterialPdf() {
     return this.http.get(`${environment.apiUrl}`);

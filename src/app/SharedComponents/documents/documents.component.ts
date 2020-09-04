@@ -44,7 +44,9 @@ export class DocumentsComponent implements OnInit {
   constructor(
     private PdfserviceService: PdfserviceService,
     private router: Router
-  ) {}
+  ) {
+    this.PdfserviceService.annotation("Document");
+  }
 
   ngOnInit() {
     this.checkToggle();
@@ -64,7 +66,7 @@ export class DocumentsComponent implements OnInit {
       this.dataSource = new MatTableDataSource(TABLE_DATA);
       this.dataSource.sort = this.sort;
       this.selection = new SelectionModel(true, []);
-      console.log(this.dataSource.paginator);
+      // console.log(this.dataSource.paginator);
 
       // this.dataSource.paginator = this.paginator;
     });
@@ -84,6 +86,7 @@ export class DocumentsComponent implements OnInit {
   }
   DocumentClick(e, id, filename) {
     this.router.navigate(["/DocInsight", { id: id }]);
+    // this.PdfserviceService.annotation("Document");
   }
 
   checkToggle() {

@@ -22,7 +22,7 @@
       "clientName": "client",
       "BusinessUnit": "Business Unit",
       "thumbnails": "./assets/Images/pdf2.jpg",
-      "fileName": "pdf-sample.pdf"
+      "fileName": "LarsenToubro.pdf"
     },
     {
       "id": 3,
@@ -34,7 +34,7 @@
       "clientName": "client",
       "BusinessUnit": "Business Unit",
       "thumbnails": "./assets/Images/pdf1.jpg",
-      "fileName": "gre_research_validity_data.pdf"
+      "fileName": "ES6 Maxmiller.pdf"
     },
     {
       "id": 4,

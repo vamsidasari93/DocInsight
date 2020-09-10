@@ -28,6 +28,11 @@ export class PdfserviceService {
   private segemnetShow = new Subject();
   segemnets$ = this.segemnetShow.asObservable();
 
+  private pagesdetails = new Subject();
+  pageDetail$ = this.pagesdetails.asObservable();
+
+  private annotationCount = new Subject();
+  Annonationcount$ = this.annotationCount.asObservable();
   constructor(private http: HttpClient) {}
 
   send(value: any) {
@@ -44,6 +49,12 @@ export class PdfserviceService {
   }
   segemnets(value: any) {
     this.segemnetShow.next(value);
+  }
+  pageDetail(value: any, value2: any) {
+    this.pagesdetails.next(value);
+  }
+  Annonationcount(value: any) {
+    this.annotationCount.next(value);
   }
   getMaterialPdf() {
     return this.http.get(`${environment.apiUrl}`);

@@ -1,5 +1,8 @@
 import { Component, ViewChild } from "@angular/core";
 import { PdfserviceService } from "./Services/pdfservice.service";
+import { User, Role } from "./_models";
+import { AuthenticationService } from "./_services";
+import { Router } from "@angular/router";
 
 interface Food {
   value: string;
@@ -13,57 +16,30 @@ interface Food {
 })
 export class AppComponent {
   title = "app";
-  page: number;
-  searchValue: string;
-  checked: boolean;
-  annotation: boolean;
-  pdfFilename: any;
-  segemnts: any;
-  @ViewChild("externalPdfViewer", { static: true }) public externalPdfViewer;
-  @ViewChild("embeddedPdfViewer", { static: true }) public embeddedPdfViewer;
-  // @ViewChild("SearchValue", { static: true }) public SearchValue;
-  constructor(private pdfService: PdfserviceService) {}
-  searchComponent(search) {
-    this.searchValue = search;
+  currentUser: User;
+  module: boolean;
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {
+    this.authenticationService.currentUser.subscribe(
+      (x) => (this.currentUser = x)
+    );
   }
 
-  ngOnInit() {
-    this.find();
-    this.pdfService.pdfName$.subscribe((val) => {
-      this.pdfFilename = val;
-    });
-  }
-  find() {
-    // this.annotation = true;
-    this.pdfService.annatation$.subscribe((val) => {
-      if (val === "DocInsight") {
-        this.annotation = false;
-      } else {
-        this.annotation = true;
-      }
-    });
-  }
-  annotationCount() {
-    this.segemnts = !this.segemnts;
-    this.pdfService.segemnets(this.segemnts);
-  }
-  public openPdf() {
-    console.log("opening pdf in new tab!");
-    this.externalPdfViewer.pdfSrc = "compressed.pdf";
-    this.externalPdfViewer.refresh();
+  ngOnInit() {}
+  get isAdmin() {
+    if (this.currentUser && this.currentUser.role === Role.Admin) {
+      this.module = true;
+      return this.currentUser && this.currentUser.role === Role.Admin;
+    } else {
+      this.module = false;
+      return this.currentUser && this.currentUser.role === Role.User;
+    }
   }
 
-  public changePdf() {
-    console.log("Changing pdf viewer url!");
-    this.embeddedPdfViewer.pdfSrc = "compressed.pdf";
-    this.embeddedPdfViewer.refresh();
-  }
-  onKey(e) {
-    let searchvalue = e.target.value;
-    this.pdfService.searchvalue(searchvalue);
-  }
-  changed() {
-    var checkValue = this.checked;
-    this.pdfService.send(checkValue);
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(["/login"]);
   }
 }

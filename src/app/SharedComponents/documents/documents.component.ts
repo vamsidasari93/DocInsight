@@ -44,11 +44,10 @@ export class DocumentsComponent implements OnInit {
   constructor(
     private PdfserviceService: PdfserviceService,
     private router: Router
-  ) {
-    this.PdfserviceService.annotation("Document");
-  }
+  ) {}
 
   ngOnInit() {
+    this.PdfserviceService.annotation("Document");
     this.checkToggle();
     this.pdffile();
     this.PdfserviceService.searchValue$.subscribe((val) => {

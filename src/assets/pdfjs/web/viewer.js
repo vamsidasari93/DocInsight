@@ -19,6 +19,7 @@
  * @licend The above is the entire license notice for the
  * Javascript code in this page
  */
+$.fn.selectpicker.Constructor.BootstrapVersion = "4";
 
 /******/ (function (modules) {
   // webpackBootstrap
@@ -20507,6 +20508,7 @@
     // document.addEventListener("selectionchange", () => {
     //   console.log("selceted", document.getSelection());
     // }),
+
     document.addEventListener("click", () => {
       var pdf = HighlightSelectedText();
       document.addEventListener("dblclick", () => {
@@ -20518,6 +20520,28 @@
   ]
 );
 
+document.addEventListener("DOMContentLoaded", (event) => {
+  clauseslist();
+});
+
+function clauseslist() {
+  var select = document.getElementById("selectclause");
+  var options = [
+    { id: 1, name: "payment Terms" },
+    { id: 2, name: "Price Varation" },
+    { id: 3, name: "Permission/Rows" },
+    { id: 4, name: "Termination" },
+    { id: 5, name: "Dispute Resolution" },
+    { id: 6, name: "Force majeure" },
+  ];
+  for (var i = 0; i < options.length; i++) {
+    var opt = options[i];
+    var el = document.createElement("option");
+    el.textContent = opt.name;
+    el.value = opt.id;
+    select.appendChild(el);
+  }
+}
 // document.addEventListener("click", () => {
 //   var pdf = HighlightSelectedText();
 //   document.addEventListener("dblclick", () => {
@@ -20550,6 +20574,33 @@ function getSelectedText() {
     return document.selection.createRange().text;
   }
   return "";
+}
+function selectedvalue(e) {
+  var segmentid = e.target.value;
+  console.log("id", segmentid);
+  var pageIndex = window.PDFViewerApplication.pdfViewer.currentPageNumber;
+  console.log("pageindex", pageIndex);
+  var clasues_object = {
+    segmentId: segmentid,
+    pageNo: pageIndex,
+    coordinates: "84,127,805,1667",
+  };
+  var objArray = [];
+  if (localStorage.getItem("clasues_object") === null) {
+    objArray.push(clasues_object);
+    localStorage.setItem("clasues_object", JSON.stringify(objArray));
+    console.log(clasues_object);
+  } else {
+    objArray = localStorage.getItem("clasues_object");
+    // console.log("objArray", objArray);
+    // console.log("objArraypp", JSON.parse(objArray));
+    var abc = JSON.parse(objArray);
+    console.log("clasues_object", clasues_object);
+    console.log("abc", abc);
+    abc.push(clasues_object);
+    console.log(clasues_object);
+    localStorage.setItem("clasues_object", JSON.stringify(abc));
+  }
 }
 
 function HighlightSelectedText() {
@@ -20586,7 +20637,8 @@ function HighlightSelectedText() {
     );
     // el.setAttribute("id", "newElement" + i);
     pageElement.appendChild(el);
+    console.log(bounds);
   });
-  console.log(selected);
+  // console.log(selectionRects);
 }
 //# sourceMappingURL=viewer.js.map

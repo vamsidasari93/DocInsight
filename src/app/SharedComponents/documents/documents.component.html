@@ -13,13 +13,6 @@
     class="example-card"
     *ngFor="let documents of pdfData | filter: searchValue"
   >
-    <div class="edit-icon" fxLayoutAlign="end end">
-      <i
-        class="fa fa-pencil-square-o"
-        aria-hidden="true"
-        (click)="DocumentClick($event, documents.id, documents.cName)"
-      ></i>
-    </div>
     <img
       class="document-image"
       src="{{ documents.thumbnails }}"
@@ -33,7 +26,11 @@
         fxLayoutAlign="space-between center"
       >
         <span class="document-name">{{ documents.cName }}</span>
-        <i class="fa fa-trash" aria-hidden="true"></i>
+
+        <div class="thumbnails_icon">
+          <mat-icon class="download-icon">save_alt</mat-icon>
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </div>
         <!-- <mat-icon class="document-DTLicon">delete</mat-icon> -->
       </div>
       <div

@@ -2512,12 +2512,14 @@ html[dir="rtl"] #documentPropertiesOverlay .row > * {
   border-radius: 2px;
   border: 1px solid;
   background: white;
+  outline: none;
 }
 .dropdown-toggle {
   font-size: 14px;
   font-weight: 500;
+  outline: none;
 }
-.bootstrap-select .dropdown-toggle:focus {
+.bootstrap-select:focus {
   outline: none;
 }
 .bs-searchbox .form-control {

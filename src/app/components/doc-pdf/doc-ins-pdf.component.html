@@ -1,8 +1,8 @@
 <div class="h-100" fxLayout="row" fxLayoutAlign="space-between start">
   <div class="h-100">
-    <!-- {{ viewer.page }}
-    {{ viewer.pdfSrc }}
-    {{ viewer.nameddest }} -->
+    <!-- Pages {{ viewer.page }} of {{ totalPages }}
+    {{ viewer.pdfSrc }} -->
+
     <!-- {{ viewer.PDFViewerApplication }}
     {{ viewer.PDFViewerApplicationOptions }} -->
     <ng2-pdfjs-viewer
@@ -18,11 +18,11 @@
     >
     </ng2-pdfjs-viewer>
   </div>
-  <div *ngIf="segmentShow" class="p-10" fxFlex="17">
+  <div *ngIf="segmentShow" class="p-10" fxFlex="21">
     <!-- <mat-selection-list #shoes> -->
 
     <div class="segments-values">
-      <mat-icon (click)="close()" class="close-icon">cancel</mat-icon>
+      <!-- <mat-icon (click)="close()" class="close-icon">cancel</mat-icon> -->
       <div fxLayout="row" class="segement-search">
         <mat-icon matPrefix class="search-icon">search</mat-icon>
         <input
@@ -34,12 +34,26 @@
       </div>
       <hr />
       <div
+        class="clasuses-list"
         *ngFor="let clasues of segments | filter: searchSegment"
-        fxLayout="row"
-        fxLayoutAlign="space-between center"
       >
-        <p>{{ clasues }}</p>
-        <span>(0)</span>
+        <mat-accordion>
+          <mat-expansion-panel hideToggle="true" (click)="click()">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ clasues.name }}
+              </mat-panel-title>
+              ({{ clasues.pg.length }})
+              <mat-icon *ngIf="clasues.count > 0">{{
+                icon ? "arrow_drop_up" : "arrow_drop_down"
+              }}</mat-icon>
+              <div *ngIf="clasues.count == 0" class="pl-22"></div>
+            </mat-expansion-panel-header>
+            <span class="pg-count" *ngFor="let pagno of clasues.pg"
+              >pg:{{ pagno.pageNo }} </span
+            >&nbsp;
+          </mat-expansion-panel>
+        </mat-accordion>
       </div>
     </div>
 

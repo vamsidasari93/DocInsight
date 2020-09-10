@@ -1,0 +1,98 @@
+﻿<div class="login-main">
+  <div class="container-fluid">
+    <div class="row header">
+      <div class="col-12 logo-title">
+        <h2>
+          LNT Next
+          <small
+            ><em><strong>DocInsights</strong></em></small
+          >
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-7 d-none d-md-block d-lg-block">
+        <div class="left-container">
+          <h2>
+            <em><strong>Welcome</strong></em>
+          </h2>
+          <!-- <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p> -->
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="alert alert-info">
+          <strong>Training Module</strong> - U: training@nxt.com P: train@123<br />
+          <strong>Live Module</strong> - U: live@nxt.com P: live@123
+        </div>
+        <div class="card">
+          <h4 class="card-header">Login</h4>
+          <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  type="text"
+                  formControlName="username"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                />
+                <div
+                  *ngIf="submitted && f.username.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.username.errors.required">
+                    Username is required
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                />
+                <div
+                  *ngIf="submitted && f.password.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.password.errors.required">
+                    Password is required
+                  </div>
+                </div>
+              </div>
+              <button [disabled]="loading" class="btn btn-primary">
+                <span
+                  *ngIf="loading"
+                  class="spinner-border spinner-border-sm mr-1"
+                ></span>
+                Login
+              </button>
+              <div *ngIf="error" class="alert alert-danger mt-3 mb-0">
+                {{ error }}
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-container">
+        <div class="col-11">
+          <div class="row footer">
+            <p>Documents | Files | modules</p>
+          </div>
+        </div>
+        <div class="col-11">
+          <div class="row footer-copyright">
+            <p>Copyright 2020 @ Lnt Next</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

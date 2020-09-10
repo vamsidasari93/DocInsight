@@ -689,14 +689,31 @@ See https://github.com/adobe-type-tools/cmap-resources
                   Categories
                 </button>
                 <div class="form-group">
-                  <select class="selectpicker" data-live-search="true">
-                    <option>Payment Terms</option>
+                  <select
+                    class="selectpicker show-tick"
+                    onchange="selectedvalue(event)"
+                    multiple
+                    data-live-search="true"
+                    data-max-options="1"
+                    id="selectclause"
+                  >
+                    <option></option>
+                    <!-- <option>Payment Terms</option>
                     <option>Price variation</option>
                     <option>Permissions/Rows</option>
                     <option>Terminations</option>
                     <option>Dispute Resolution</option>
-                    <option>Force majeure</option>
+                    <option>Force majeure</option> -->
                   </select>
+                  <!-- <select id="selectclause" onchange="selectedvalue(event)">
+                    <input
+                      type="text"
+                      placeholder="Search.."
+                      id="myInput"
+                      onkeyup="filterFunction()"
+                    />
+                    <option></option>
+                  </select> -->
                 </div>
               </div>
             </div>

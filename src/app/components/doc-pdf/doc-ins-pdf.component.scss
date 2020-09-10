@@ -6,12 +6,12 @@
   padding: 10px;
 }
 .segments-values {
-  background-color: #8a8989;
+  // background-color: #8a8989;
   color: whitesmoke;
   font-size: 14px;
   font-weight: 500;
   padding: 5px 10px;
-  box-shadow: 2px 2px #888888;
+  // box-shadow: 2px 2px #888888;
   .close-icon {
     cursor: pointer;
     float: right;
@@ -27,6 +27,45 @@
       outline: none;
       border: none;
       background: transparent;
+    }
+  }
+  .clasuses-list {
+    border-bottom: 1px solid #888787;
+    .clasues {
+      margin: 5px;
+    }
+    .mat-accordion {
+      .mat-expansion-panel {
+        border-radius: 0px;
+        box-shadow: none;
+        .pl-22 {
+          padding-left: 22px;
+        }
+        .mat-expansion-panel-header {
+          height: 30px !important;
+          padding: 6px;
+          font-size: 14px;
+          font-weight: 500;
+          background-color: grey;
+          border-bottom: 1px solid #a3a2a2;
+          color: white;
+          .mat-expansion-panel-header-title {
+            color: white;
+          }
+        }
+        ::ng-deep.mat-expansion-panel-content {
+          .mat-expansion-panel-body {
+            background-color: #d4d4d4;
+            padding: 4px 6px;
+            font-weight: 500;
+            .pg-count {
+              background: white;
+              padding: 2px;
+              margin-right: 8px;
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -16,13 +16,20 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatInputModule } from "@angular/material/input";
 import { SharedModule } from "./SharedComponents/shared.module";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { PdfserviceService } from "./Services/pdfservice.service";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { LoginComponent } from "./login";
+import {
+  JwtInterceptor,
+  ErrorInterceptor,
+  fakeBackendProvider,
+} from "./_helpers";
+import { HeadersComponent } from "./Common/headers/headers.component";
 const MATERIAL_IMPORTS = [
   BrowserAnimationsModule,
   MatToolbarModule,
@@ -30,7 +37,7 @@ const MATERIAL_IMPORTS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent, HeadersComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -54,9 +61,16 @@ const MATERIAL_IMPORTS = [
     MatSlideToggleModule,
     MatPaginatorModule,
     MatCheckboxModule,
+    ReactiveFormsModule,
   ],
   exports: [],
-  providers: [PdfserviceService],
+  providers: [
+    PdfserviceService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    // provider used to create fake backend
+    fakeBackendProvider,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,73 +1,60 @@
-.container {
+.main-content {
+  height: 100%;
   padding: 5px !important;
-  height: calc(100% - 142px) !important; // Remove toolbar height
+  // height: calc(100% - 132px) !important; // Remove toolbar height
   background-color: grey;
-  .container-scrollBody {
-    overflow-y: scroll;
+}
+.container-scrollBody {
+  overflow-y: scroll;
 
-    &:hover {
-      &::-webkit-scrollbar {
-        display: block;
-        opacity: 1;
-      }
-      &::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px #e4e4e4;
-        //         above green is for scroller background color
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: #162648;
-        //         above red is for scroller color
-        outline: 1px solid slategrey;
-      }
-    }
+  &:hover {
     &::-webkit-scrollbar {
-      width: 2px;
-      opacity: 0;
+      display: block;
+      opacity: 1;
+    }
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px #e4e4e4;
+      //         above green is for scroller background color
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #162648;
+      //         above red is for scroller color
+      outline: 1px solid slategrey;
     }
   }
+  &::-webkit-scrollbar {
+    width: 2px;
+    opacity: 0;
+  }
 }
-
 .spacer {
   flex: 1 1 auto;
-}
-.sub-toolbar {
-  .mat-accent {
-    background: #ffda29;
-    color: #1f1f23;
-    padding: 3px;
-    border-radius: 0px;
-  }
-  .add-document-icon {
-    margin: 0px;
-    padding: 0px;
-    padding-left: 10px;
-    min-width: 0px;
-  }
-  .document-add {
-    font-size: 14px;
-    line-height: 1;
-  }
 }
 
 button {
   font-size: large;
   margin-left: 10px;
   margin-right: 10px;
+  outline: none;
 }
-.sub-toolbar {
-  height: 44px;
-  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
-  z-index: 1;
-  .search-icon {
-    color: grey;
-    font-size: 24px;
-  }
-}
+
 .header-toolbar {
   height: 44px;
   position: relative;
   z-index: 1;
   box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+  .brand-profile {
+    background-color: #c6c2c2;
+    height: 43px;
+    width: 64px;
+    margin-right: 10px;
+  }
+  .module-name {
+    font-size: 18px;
+    opacity: 0.2;
+    font-weight: 500;
+    margin: 0px;
+  }
   .modules {
     font-size: 12px;
     // height: 32px;
@@ -85,103 +72,11 @@ button {
   .profile-menu {
     .icon-gray {
       color: grey;
+      outline: none;
     }
-  }
-}
-.grid-toolbar {
-  padding-right: 0px;
-  height: 44px;
-  z-index: 1;
-  position: relative;
-  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
-  .annotation {
-    font-size: 14px;
-    background-color: grey;
-    color: white;
-    padding: 4px 6px;
-    font-weight: 600;
-    margin: 0px;
-    border-radius: 0;
-    .annotation-icon {
-      .fa-pencil-square-o {
-        font-size: 24px;
-      }
-    }
-    .annotation-count {
-      float: right;
-      line-height: 1;
-      font-size: 15px;
-      font-weight: 500;
-      padding-left: 5px;
-      color: #ffda29;
-    }
-  }
-
-  .backward {
-    font-size: 15px;
-    padding-left: 5px;
-  }
-  .Review-icon {
-    font-size: 14px;
-    background-color: #ffda29;
-    color: #010113;
-    padding: 8px 8px;
-    font-weight: 600;
-    margin: 0px;
-  }
-  .review-add {
-    margin: 0px;
-    padding: 0px;
-    min-width: 0px;
-    float: left;
-    text-align: left;
-  }
-  .rate-document-icon {
-    font-size: 14px;
-    line-height: 1;
-  }
-  .sidebar-Toggle {
-    ::ng-deep .mat-slide-toggle-bar {
-      position: relative;
-      // width: 46px;
-      height: 15px;
-      margin: 0px 6px;
-      background-color: blue;
-    }
-    ::ng-deep .mat-slide-toggle-thumb-container {
-      top: 2px;
-    }
-    ::ng-deep .mat-slide-toggle-thumb {
-      height: 12px;
-      width: 12px;
-    }
-  }
-  ::ng-deep .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
-    transform: translate3d(24px, 0, 0) !important;
   }
 }
 .logout-grey {
   color: grey;
-}
-
-::ng-deep .mat-form-field-flex > .mat-form-field-infix {
-  padding: 0px 0px 2px !important;
-  border-top: 0px;
-}
-::ng-deep .mat-form-field-label-wrapper {
-  top: -1.5em;
-}
-::ng-deep .mat-form-field-wrapper {
-  padding-bottom: 0px;
-  background: white;
   outline: none;
-  border-radius: 50px;
-  color: grey;
-}
-::ng-deep
-  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
-  .mat-form-field-label {
-  transform: translateY(-1.1em) scale(0.75);
-  width: 133.33333%;
-  background: white;
 }
